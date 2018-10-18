@@ -26,9 +26,9 @@ fetch(NYTurl, { method: "get" })
         '</span></p><a href="' +
         url +
         '">' +
-        '<p class="underln">' +
+        '<h3 class="underln">' +
         bookObj.title +
-        "</p></a></div><p>by " +
+        "</h3></a></div><p>by " +
         "<span>" +
         bookObj.author +
         "</span></p><p>publisher: " +
