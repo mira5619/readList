@@ -1,6 +1,5 @@
 var list = document.body.querySelector("ul");
 
-
 var NYTimes_API_Key = "543efef0096b759361ddfa9e1f310fe2:8:72673622";
 var NYTurl =
   "https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-fiction&api-key=" +
@@ -18,8 +17,6 @@ fetch(NYTurl, { method: "get" })
       var url = book.amazon_product_url;
       var rank = book.rank;
       var bookObj = book.book_details[0];
-      var publisher = bookObj.publisher;
-      console.log(publisher);
 
       var item = document.createElement("li");
       item.classList.add("book");
@@ -71,26 +68,34 @@ var colors = [
   "#a4c400",
   "#d80073",
   "#825a2c",
-
   "#00aba9",
   "#fa6800",
   "#1ba1e2",
   "#6d8764",
   "#6a00ff",
-
   "#f472d0",
   "#60a917",
-
   "#a20025",
   "#e51400",
-
   "#f0a30a",
   "#e3c800",
   "#0050ef",
   "#aa00ff",
-
   "#008a00",
   "#647687",
-
   "#76608a"
 ];
+
+//fixing horizontal scroll
+//https://css-tricks.com/findingfixing-unintended-body-overflow/
+
+// var docWidth = document.documentElement.offsetWidth;
+
+// [].forEach.call(
+//   document.querySelectorAll('*'),
+//   function(el) {
+//     if (el.offsetWidth > docWidth) {
+//       console.log(el);
+//     }
+//   }
+// );
