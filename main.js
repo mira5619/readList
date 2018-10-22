@@ -1,4 +1,5 @@
 window.onload = init();
+
 function init() {
   var list = document.body.querySelector("ul");
 
@@ -7,14 +8,16 @@ function init() {
     "https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-fiction&api-key=" +
     NYTimes_API_Key;
 
-  fetch(NYTurl, { method: "get" })
+  fetch(NYTurl, {
+      method: "get"
+    })
     .then(response => {
       return response.json();
     })
     .then(json => {
       var books = json.results;
 
-      books.forEach(function(book, index) {
+      books.forEach(function (book, index) {
         var isbns = book.isbns[0].isbn10;
         var url = book.amazon_product_url;
         var rank = book.rank;
@@ -41,12 +44,12 @@ function init() {
 
         list.appendChild(item);
         item.style.borderTop = "6px solid" + colors[index];
-        
+
       });
     });
 
   var prevScrollpos = window.pageYOffset;
-  window.onscroll = function() {
+  window.onscroll = function () {
     var currentScrollpos = window.pageYOffset;
     if (prevScrollpos > currentScrollpos) {
       document.querySelector(".header").style.top = "0";
